@@ -8,8 +8,8 @@ class LogoFasMail extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Image.asset(
-      'assets/images/logo.png',
-      width: 279, // atur ukuran sesuai figma
+      'assets/images/logo.png', // pastikan path dan nama file logo benar
+      width: 279, // sesuaikan dengan ukuran logo di figma
     );
   }
 }
@@ -28,9 +28,14 @@ class LoginMahasiswaScreen extends StatelessWidget {
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-            Center(child: LogoFasMail()),
+            Center(child: LogoFasMail()), // Logo di tengah
             const SizedBox(height: 32),
-            const Text("Login", style: TextStyle(fontWeight: FontWeight.bold)),
+            Center(
+              child: const Text(
+                "Login",
+                style: TextStyle(fontWeight: FontWeight.bold, fontSize: 20),
+              ),
+            ),
             const SizedBox(height: 20),
             TextField(
               controller: nimController,

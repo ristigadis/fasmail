@@ -2,21 +2,8 @@
 import 'package:flutter/material.dart';
 import '../mahasiswa/login_mahasiswa_screen.dart';
 import '../admin/login_admin_screen.dart';
-import '../mahasiswa/register_screen.dart'; // pastikan file ini ada dan path benar
+import '../mahasiswa/register_screen.dart'; // pastikan file ini ada
 
-
-
-class LogoFasMail extends StatelessWidget {
-  const LogoFasMail({super.key});
-
-  @override
-  Widget build(BuildContext context) {
-    return Image.asset(
-      'assets/images/logo.png',
-      width: 279, // atur ukuran sesuai figma
-    );
-  }
-}
 
 class RoleSelectionScreen extends StatelessWidget {
   const RoleSelectionScreen({super.key});
@@ -30,18 +17,17 @@ class RoleSelectionScreen extends StatelessWidget {
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
-            LogoFasMail(),
-            FlutterLogo(size: 279), // Placeholder for LogoFasMail
+            const LogoFasMail(), // pastikan widget ini tersedia
             const SizedBox(height: 40),
             const Text("Masuk Sebagai", style: TextStyle(fontWeight: FontWeight.bold)),
             const SizedBox(height: 24),
-            buildRoleButton("Admin TU", context, const LoginAdminScreen()),
+            buildRoleButton("Admin TU", context, const LoginAdminScreen(), Colors.black),
             const SizedBox(height: 16),
-            buildRoleButton("Mahasiswa", context, const LoginMahasiswaScreen()),
+            buildRoleButton("Mahasiswa", context, const LoginMahasiswaScreen(), Colors.black),
             const SizedBox(height: 24),
             GestureDetector(
               onTap: () {
-                Navigator.push(context, MaterialPageRoute(builder: (_) => const RegisterScreen())); // Pastikan RegisterScreen adalah nama kelas yang benar di register_screen.dart
+                Navigator.push(context, MaterialPageRoute(builder: (_) => const RegisterScreen()));
               },
               child: Column(
                 children: const [
@@ -57,7 +43,7 @@ class RoleSelectionScreen extends StatelessWidget {
     );
   }
 
-  Widget buildRoleButton(String label, BuildContext context, Widget target) {
+  Widget buildRoleButton(String label, BuildContext context, Widget target, Color textColor) {
     return SizedBox(
       width: double.infinity,
       child: ElevatedButton(
@@ -67,7 +53,7 @@ class RoleSelectionScreen extends StatelessWidget {
           shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(8)),
           padding: const EdgeInsets.symmetric(vertical: 16),
         ),
-        child: Text(label, style: const TextStyle(fontWeight: FontWeight.bold)),
+        child: Text(label, style: TextStyle(fontWeight: FontWeight.bold, color: textColor)),
       ),
     );
   }
