@@ -1,7 +1,7 @@
 // lib/screens/shared/role_selection_screen.dart
 import 'package:flutter/material.dart';
-import '../mahasiswa/login_mahasiswa_screen.dart';
-import '../admin/login_admin_screen.dart';
+import '../mahasiswa/login_mahasiswa_screen.dart' as mahasiswa;
+import '../admin/login_admin_screen.dart' as admin;
 import '../mahasiswa/register_screen.dart'; // pastikan file ini ada
 
 
@@ -17,13 +17,13 @@ class RoleSelectionScreen extends StatelessWidget {
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
-            const LogoFasMail(), // pastikan widget ini tersedia
+            const mahasiswa.LogoFasMail(), // pastikan widget ini tersedia
             const SizedBox(height: 40),
             const Text("Masuk Sebagai", style: TextStyle(fontWeight: FontWeight.bold)),
             const SizedBox(height: 24),
-            buildRoleButton("Admin TU", context, const LoginAdminScreen(), Colors.black),
+            buildRoleButton("Admin TU", context, const admin.LoginAdminScreen(), Colors.black),
             const SizedBox(height: 16),
-            buildRoleButton("Mahasiswa", context, const LoginMahasiswaScreen(), Colors.black),
+            buildRoleButton("Mahasiswa", context, const mahasiswa.LoginMahasiswaScreen(), Colors.black),
             const SizedBox(height: 24),
             GestureDetector(
               onTap: () {

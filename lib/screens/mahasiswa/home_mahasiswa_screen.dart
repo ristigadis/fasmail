@@ -35,9 +35,9 @@ class _HomeMahasiswaScreenState extends State<HomeMahasiswaScreen> {
         selectedItemColor: Colors.black,
         unselectedItemColor: Colors.white,
         items: const [
-          BottomNavigationBarItem(icon: Icon(Icons.description), label: ''),
-          BottomNavigationBarItem(icon: Icon(Icons.home), label: ''),
-          BottomNavigationBarItem(icon: Icon(Icons.person), label: ''),
+          BottomNavigationBarItem(icon: Icon(Icons.description), label: 'Riwayat'),
+          BottomNavigationBarItem(icon: Icon(Icons.home), label: 'Home'),
+          BottomNavigationBarItem(icon: Icon(Icons.person), label: 'Profil'),
         ],
       ),
     );

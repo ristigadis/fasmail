@@ -6,35 +6,31 @@ class ProfilAdminScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final String nama = 'Admin TU Fasilkom';
-    final String nip = '19876543210';
-    final String jabatan = 'Tata Usaha';
+    const String nama = 'Admin TU Fasilkom';
+    const String nip = '19876543210';
+    const String jabatan = 'Tata Usaha';
 
     return Scaffold(
-      appBar: AppBar(title: const Text('Profil Admin')),
+      appBar: AppBar(title: const Text('Profil Admin TU'), backgroundColor: const Color(0xFFF45C5C)),
       body: Padding(
-        padding: const EdgeInsets.all(20),
+        padding: const EdgeInsets.all(32),
         child: Column(
           children: [
-            const CircleAvatar(
-              radius: 50,
-              backgroundColor: Colors.red,
-              child: Icon(Icons.admin_panel_settings, size: 50, color: Colors.white),
-            ),
-            const SizedBox(height: 20),
+            const CircleAvatar(radius: 50, backgroundColor: Colors.red, child: Icon(Icons.admin_panel_settings, size: 50, color: Colors.white)),
+            const SizedBox(height: 32),
             TextField(readOnly: true, decoration: InputDecoration(labelText: 'Nama', hintText: nama)),
-            const SizedBox(height: 10),
+            const SizedBox(height: 16),
             TextField(readOnly: true, decoration: InputDecoration(labelText: 'NIP', hintText: nip)),
-            const SizedBox(height: 10),
+            const SizedBox(height: 16),
             TextField(readOnly: true, decoration: InputDecoration(labelText: 'Jabatan', hintText: jabatan)),
-            const SizedBox(height: 30),
+            const SizedBox(height: 32),
             ElevatedButton(
               onPressed: () {
                 Navigator.popUntil(context, (route) => route.isFirst); // logout ke splash
               },
               style: ElevatedButton.styleFrom(backgroundColor: Colors.red),
               child: const Text('Logout'),
-            )
+            ),
           ],
         ),
       ),
