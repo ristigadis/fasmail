@@ -49,89 +49,90 @@ class HomeContentAdmin extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return SafeArea(
-      child: Padding(
-        padding: const EdgeInsets.all(24.0),
-        child: Column(
-          crossAxisAlignment: CrossAxisAlignment.start,
-          children: [
-            // Header "Selamat datang, Admin!"
-            Container(
-          width: double.infinity,
-          padding: const EdgeInsets.symmetric(horizontal: 24, vertical: 36),
-          decoration: const BoxDecoration(
-            color: Color(0xFFF45C5C),
-            borderRadius: BorderRadius.only(
-              bottomLeft: Radius.circular(40),
-              bottomRight: Radius.circular(40),
-            ),
-          ),
-          child: const Text(
-            "Selamat datang, Admin!",
-            style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold, color: Colors.white),
-          ),
-        ),
-
-        const SizedBox(height: 24),
-            // Tombol "Surat Masuk"
-            InkWell(
-              onTap: () {
-                // TODO: Navigasi ke halaman surat masuk
-              },
-              child: Container(
-                width: double.infinity,
-                padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 18),
-                margin: const EdgeInsets.only(bottom: 16),
-                decoration: BoxDecoration(
-                  color: const Color(0xFFF45C5C),
-                  borderRadius: BorderRadius.circular(12),
-                ),
-                child: Row(
-                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                  children: const [
-                    Text(
-                      'Surat Masuk',
-                      style: TextStyle(
-                        fontSize: 18,
-                        fontWeight: FontWeight.w600,
-                      ),
-                    ),
-                    Icon(Icons.inbox, size: 28, color: Colors.black),
-                  ],
-                ),
+    return SingleChildScrollView(
+      child: Column(
+        children: [
+          // Header
+          Container(
+            width: double.infinity,
+            padding: const EdgeInsets.symmetric(horizontal: 24, vertical: 36),
+            decoration: const BoxDecoration(
+              color: Color(0xFFF45C5C),
+              borderRadius: BorderRadius.only(
+                bottomLeft: Radius.circular(40),
+                bottomRight: Radius.circular(40),
               ),
             ),
-
-            // Tombol "Surat Keluar"
-            InkWell(
-              onTap: () {
-                // TODO: Navigasi ke halaman surat keluar
-              },
-              child: Container(
-                width: double.infinity,
-                padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 18),
-                margin: const EdgeInsets.only(bottom: 16),
-                decoration: BoxDecoration(
-                  color: const Color(0xFFF45C5C),
-                  borderRadius: BorderRadius.circular(12),
-                ),
-                child: Row(
-                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                  children: const [
-                    Text(
-                      'Surat Keluar',
-                      style: TextStyle(
-                        fontSize: 18,
-                        fontWeight: FontWeight.w600,
-                      ),
-                    ),
-                    Icon(Icons.send, size: 28, color: Colors.black),
-                  ],
-                ),
-              ),
+            child: const Text(
+              "Selamat datang, Admin!",
+              style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold, color: Colors.white),
             ),
-          ],
-        ),
+          ),
+          const SizedBox(height: 24),
+
+          // Tombol-tombol dibungkus padding horizontal
+          Padding(
+            padding: const EdgeInsets.symmetric(horizontal: 16.0),
+            child: Column(
+              children: [
+                InkWell(
+                  onTap: () {
+                    // TODO: Navigasi ke halaman surat masuk
+                  },
+                  child: Container(
+                    width: double.infinity,
+                    padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 18),
+                    margin: const EdgeInsets.only(bottom: 16),
+                    decoration: BoxDecoration(
+                      color: const Color(0xFFF45C5C),
+                      borderRadius: BorderRadius.circular(12),
+                    ),
+                    child: Row(
+                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                      children: const [
+                        Text(
+                          'Surat Masuk',
+                          style: TextStyle(
+                            fontSize: 18,
+                            fontWeight: FontWeight.w600,
+                          ),
+                        ),
+                        Icon(Icons.inbox, size: 28, color: Colors.black),
+                      ],
+                    ),
+                  ),
+                ),
+                InkWell(
+                  onTap: () {
+                    // TODO: Navigasi ke halaman surat keluar
+                  },
+                  child: Container(
+                    width: double.infinity,
+                    padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 18),
+                    margin: const EdgeInsets.only(bottom: 16),
+                    decoration: BoxDecoration(
+                      color: const Color(0xFFF45C5C),
+                      borderRadius: BorderRadius.circular(12),
+                    ),
+                    child: Row(
+                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                      children: const [
+                        Text(
+                          'Surat Keluar',
+                          style: TextStyle(
+                            fontSize: 18,
+                            fontWeight: FontWeight.w600,
+                          ),
+                        ),
+                        Icon(Icons.send, size: 28, color: Colors.black),
+                      ],
+                    ),
+                  ),
+                ),
+              ],
+            ),
+          ),
+        ],
       ),
     );
   }

@@ -11,29 +11,72 @@ class ProfilAdminScreen extends StatelessWidget {
     const String jabatan = 'Tata Usaha';
 
     return Scaffold(
-      appBar: AppBar(title: const Text('Profil Admin TU'), backgroundColor: const Color(0xFFF45C5C)),
+      appBar: AppBar(
+        title: const Text('Profil Admin TU'),
+        backgroundColor: const Color(0xFFF45C5C), // Sesuaikan dengan desain
+      ),
       body: Padding(
         padding: const EdgeInsets.all(32),
         child: Column(
+          crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-            const CircleAvatar(radius: 50, backgroundColor: Colors.red, child: Icon(Icons.admin_panel_settings, size: 50, color: Colors.white)),
+            // Avatar Admin
+            const Center(
+              child: CircleAvatar(
+                radius: 50,
+                backgroundColor: Colors.red,
+                child: Icon(Icons.admin_panel_settings, size: 50, color: Colors.white),
+              ),
+            ),
             const SizedBox(height: 32),
-            TextField(readOnly: true, decoration: InputDecoration(labelText: 'Nama', hintText: nama)),
+
+            // Nama Admin
+            _buildProfileField("Nama", nama),
             const SizedBox(height: 16),
-            TextField(readOnly: true, decoration: InputDecoration(labelText: 'NIP', hintText: nip)),
+
+            // NIP Admin
+            _buildProfileField("NIP", nip),
             const SizedBox(height: 16),
-            TextField(readOnly: true, decoration: InputDecoration(labelText: 'Jabatan', hintText: jabatan)),
+
+            // Jabatan Admin
+            _buildProfileField("Jabatan", jabatan),
             const SizedBox(height: 32),
-            ElevatedButton(
-              onPressed: () {
-                Navigator.popUntil(context, (route) => route.isFirst); // logout ke splash
-              },
-              style: ElevatedButton.styleFrom(backgroundColor: Colors.red),
-              child: const Text('Logout'),
+
+            // Tombol Logout yang terpusat
+            Center(
+              child: ElevatedButton(
+                onPressed: () {
+                  Navigator.popUntil(context, (route) => route.isFirst); // Logout dan kembali ke splash screen
+                },
+                style: ElevatedButton.styleFrom(
+                  side: const BorderSide(color: Color.fromARGB(255, 255, 13, 13)),
+                  padding: const EdgeInsets.symmetric(vertical: 16),
+                  shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(8)),
+                ),
+                child: const Text("Logout", style: TextStyle(color: Color.fromARGB(255, 0, 0, 0), fontWeight: FontWeight.bold)),
+              ),
             ),
           ],
         ),
       ),
+    );
+  }
+
+  // Fungsi untuk menampilkan field profil
+  Widget _buildProfileField(String label, String value) {
+    return Column(
+      crossAxisAlignment: CrossAxisAlignment.start,
+      children: [
+        Text(
+          label,
+          style: const TextStyle(fontWeight: FontWeight.bold, fontSize: 16),
+        ),
+        const SizedBox(height: 8),
+        Text(
+          value,
+          style: const TextStyle(fontSize: 16),
+        ),
+      ],
     );
   }
 }

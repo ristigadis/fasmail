@@ -1,6 +1,7 @@
 // lib/screens/mahasiswa/login_mahasiswa_screen.dart
 import 'package:flutter/material.dart';
 import 'home_mahasiswa_screen.dart';
+import 'lupa_password_screen.dart';  // Tambahkan import lupa password
 
 class LogoFasMail extends StatelessWidget {
   const LogoFasMail({super.key});
@@ -8,8 +9,8 @@ class LogoFasMail extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Image.asset(
-      'assets/images/logo.png', // pastikan path dan nama file logo benar
-      width: 279, // sesuaikan dengan ukuran logo di figma
+      'assets/images/logo.png', // pastikan path logo benar
+      width: 250, // sesuaikan dengan ukuran logo
     );
   }
 }
@@ -19,7 +20,7 @@ class LoginMahasiswaScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final TextEditingController nimController = TextEditingController();
+    final TextEditingController usernameController = TextEditingController();
     final TextEditingController passwordController = TextEditingController();
     return Scaffold(
       backgroundColor: Colors.white,
@@ -32,13 +33,13 @@ class LoginMahasiswaScreen extends StatelessWidget {
             const SizedBox(height: 32),
             Center(
               child: const Text(
-                "Login",
-                style: TextStyle(fontWeight: FontWeight.bold, fontSize: 20),
+                "Login Mahasiswa",
+                style: TextStyle(fontWeight: FontWeight.bold, fontSize: 24),
               ),
             ),
             const SizedBox(height: 20),
             TextField(
-              controller: nimController,
+              controller: usernameController,
               decoration: InputDecoration(
                 labelText: "NIM",
                 enabledBorder: OutlineInputBorder(
@@ -67,11 +68,6 @@ class LoginMahasiswaScreen extends StatelessWidget {
                 ),
               ),
             ),
-            const SizedBox(height: 8),
-            const Align(
-              alignment: Alignment.centerRight,
-              child: Text("lupa password?", style: TextStyle(fontSize: 12)),
-            ),
             const SizedBox(height: 24),
             SizedBox(
               width: double.infinity,
@@ -86,7 +82,24 @@ class LoginMahasiswaScreen extends StatelessWidget {
                 ),
                 child: const Text("Login", style: TextStyle(color: Colors.green, fontWeight: FontWeight.bold)),
               ),
-            )
+            ),
+            // Tombol lupa password untuk menuju halaman lupa password
+            const SizedBox(height: 16),
+            GestureDetector(
+              onTap: () {
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(builder: (_) => const LupaPasswordScreen()),
+                );
+              },
+              child: const Align(
+                alignment: Alignment.center,
+                child: Text(
+                  "Lupa Password?",
+                  style: TextStyle(color: Colors.blue, fontSize: 14, fontWeight: FontWeight.bold),
+                ),
+              ),
+            ),
           ],
         ),
       ),
