@@ -1,7 +1,6 @@
 // lib/screens/shared/register_screen.dart
 import 'package:flutter/material.dart';
-import '../mahasiswa/home_mahasiswa_screen.dart';
-
+import '../mahasiswa/login_mahasiswa_screen.dart';  // Import Login screen
 
 class RegisterScreen extends StatelessWidget {
   const RegisterScreen({super.key});
@@ -72,9 +71,10 @@ class RegisterScreen extends StatelessWidget {
               width: double.infinity,
               child: OutlinedButton(
                 onPressed: () {
+                  // Navigasi ke halaman Login setelah daftar
                   Navigator.pushReplacement(
                     context,
-                    MaterialPageRoute(builder: (_) => const HomeMahasiswaScreen()),
+                    MaterialPageRoute(builder: (_) => const LoginMahasiswaScreen()),
                   );
                 },
                 style: OutlinedButton.styleFrom(

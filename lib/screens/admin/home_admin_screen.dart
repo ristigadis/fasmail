@@ -1,6 +1,9 @@
+// lib/screens/admin/home_admin_screen.dart
 import 'package:flutter/material.dart';
-import 'kelola_pengumuman_screen.dart';
-import 'profil_admin_screen.dart';
+import 'surat_masuk_screen.dart'; // Import Surat Masuk
+import 'surat_keluar_screen.dart'; // Import Surat Keluar
+import 'kelola_pengumuman_screen.dart'; // Import Kelola Pengumuman
+import 'profil_admin_screen.dart'; // Import Profil Admin
 
 class HomeAdminScreen extends StatefulWidget {
   const HomeAdminScreen({super.key});
@@ -75,9 +78,14 @@ class HomeContentAdmin extends StatelessWidget {
             padding: const EdgeInsets.symmetric(horizontal: 16.0),
             child: Column(
               children: [
+                // Tombol Surat Masuk
                 InkWell(
                   onTap: () {
-                    // TODO: Navigasi ke halaman surat masuk
+                    // Navigasi ke halaman Surat Masuk
+                    Navigator.push(
+                      context,
+                      MaterialPageRoute(builder: (_) => const SuratMasukScreen()),
+                    );
                   },
                   child: Container(
                     width: double.infinity,
@@ -102,9 +110,15 @@ class HomeContentAdmin extends StatelessWidget {
                     ),
                   ),
                 ),
+
+                // Tombol Surat Keluar
                 InkWell(
                   onTap: () {
-                    // TODO: Navigasi ke halaman surat keluar
+                    // Navigasi ke halaman Surat Keluar
+                    Navigator.push(
+                      context,
+                      MaterialPageRoute(builder: (_) => const SuratKeluarScreen()),
+                    );
                   },
                   child: Container(
                     width: double.infinity,

@@ -13,7 +13,11 @@ class RiwayatSuratScreen extends StatelessWidget {
     ];
 
     return Scaffold(
-      appBar: AppBar(title: const Text('Riwayat Surat'), backgroundColor: const Color(0xFFFF4F4F)),
+      appBar: AppBar(
+        title: const Text('Riwayat Surat'),
+        backgroundColor: const Color(0xFFFF4F4F),
+        automaticallyImplyLeading: false, // ⬅️ ini buat hilangin tombol back
+      ),
       body: ListView.builder(
         padding: const EdgeInsets.all(32),
         itemCount: riwayat.length,
@@ -23,7 +27,9 @@ class RiwayatSuratScreen extends StatelessWidget {
           child: ListTile(
             title: Text(riwayat[index]),
             trailing: const Icon(Icons.arrow_forward_ios),
-            onTap: () {},
+            onTap: () {
+              // TODO: Arahkan ke halaman detail surat jika diperlukan
+            },
           ),
         ),
       ),

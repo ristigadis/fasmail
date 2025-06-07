@@ -13,7 +13,8 @@ class ProfilAdminScreen extends StatelessWidget {
     return Scaffold(
       appBar: AppBar(
         title: const Text('Profil Admin TU'),
-        backgroundColor: const Color(0xFFF45C5C), // Sesuaikan dengan desain
+        backgroundColor: const Color(0xFFF45C5C),
+        automaticallyImplyLeading: false, // ⬅️ hilangkan tombol kembali
       ),
       body: Padding(
         padding: const EdgeInsets.all(32),
@@ -30,30 +31,33 @@ class ProfilAdminScreen extends StatelessWidget {
             ),
             const SizedBox(height: 32),
 
-            // Nama Admin
             _buildProfileField("Nama", nama),
             const SizedBox(height: 16),
 
-            // NIP Admin
             _buildProfileField("NIP", nip),
             const SizedBox(height: 16),
 
-            // Jabatan Admin
             _buildProfileField("Jabatan", jabatan),
             const SizedBox(height: 32),
 
-            // Tombol Logout yang terpusat
+            // Tombol Logout
             Center(
               child: ElevatedButton(
                 onPressed: () {
-                  Navigator.popUntil(context, (route) => route.isFirst); // Logout dan kembali ke splash screen
+                  Navigator.popUntil(context, (route) => route.isFirst);
                 },
                 style: ElevatedButton.styleFrom(
                   side: const BorderSide(color: Color.fromARGB(255, 255, 13, 13)),
                   padding: const EdgeInsets.symmetric(vertical: 16),
                   shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(8)),
                 ),
-                child: const Text("Logout", style: TextStyle(color: Color.fromARGB(255, 0, 0, 0), fontWeight: FontWeight.bold)),
+                child: const Text(
+                  "Logout",
+                  style: TextStyle(
+                    color: Color.fromARGB(255, 0, 0, 0),
+                    fontWeight: FontWeight.bold,
+                  ),
+                ),
               ),
             ),
           ],
@@ -62,20 +66,13 @@ class ProfilAdminScreen extends StatelessWidget {
     );
   }
 
-  // Fungsi untuk menampilkan field profil
   Widget _buildProfileField(String label, String value) {
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
-        Text(
-          label,
-          style: const TextStyle(fontWeight: FontWeight.bold, fontSize: 16),
-        ),
+        Text(label, style: const TextStyle(fontWeight: FontWeight.bold, fontSize: 16)),
         const SizedBox(height: 8),
-        Text(
-          value,
-          style: const TextStyle(fontSize: 16),
-        ),
+        Text(value, style: const TextStyle(fontSize: 16)),
       ],
     );
   }

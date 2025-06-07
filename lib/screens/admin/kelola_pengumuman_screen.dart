@@ -34,7 +34,11 @@ class _KelolaPengumumanScreenState extends State<KelolaPengumumanScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(title: const Text("Kelola Pengumuman")),
+      appBar: AppBar(
+        title: const Text("Kelola Pengumuman"),
+        automaticallyImplyLeading: false, // ⬅️ hilangkan tombol back
+        backgroundColor: const Color(0xFFF45C5C),
+      ),
       body: Padding(
         padding: const EdgeInsets.all(20),
         child: Column(
@@ -47,7 +51,11 @@ class _KelolaPengumumanScreenState extends State<KelolaPengumumanScreen> {
               ),
             ),
             const SizedBox(height: 10),
-            ElevatedButton(onPressed: _tambahPengumuman, child: const Text("Tambah Pengumuman")),
+            ElevatedButton(
+              onPressed: _tambahPengumuman,
+              style: ElevatedButton.styleFrom(backgroundColor: Colors.green),
+              child: const Text("Tambah Pengumuman"),
+            ),
             const SizedBox(height: 20),
             Expanded(
               child: ListView.builder(
